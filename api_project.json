@@ -2,9 +2,9 @@
   "name": "AIOP NodeJS",
   "version": "0.0.0",
   "description": "API Documentation",
-  "apidoc": "",
+  "apidoc": "<h1>Information</h1>\n\n<h2>Authentication</h2>\n\n<p>All the methods of the api, except the sign in one, need the user to be logged in, at least.<br/>\nFirst, you'll need to send your credentials to the /signin URI and get the access<em>token in return.<br/>\nThis access</em>token should be sent with every request, then.<br/></p>\n\n<ul>\n<li>Query <code>url?access_token=token</code><br/></li>\n<li>Body <code>{\"access_token\":\"token\"}</code><br/></li>\n<li>Header <code>Authorization: Bearer token</code><br/></li>\n</ul>\n\n<h2>Authorization</h2>\n\n<p>When a method send back a 401 Unauthorized method, don't forget to check the WWW-Authenticate header to\nget some additional details on the failure.</p>",
   "generator": {
     "version": "0.2.6",
-    "time": "2013-11-12T19:49:00.229Z"
+    "time": "2013-11-12T20:06:11.324Z"
   }
 }
