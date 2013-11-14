@@ -119,6 +119,19 @@ require([
 	 * Create Navigationlist.
 	 */
 	var nav = [];
+	var insterted = false;
+
+	// Mainmenu "General" Entry.
+	if(apiProject.apidoc)
+	{
+		nav.push({
+			group: "_",
+			isHeader: true,
+			title: locale.__("General"),
+			isFixed: true
+		});
+	}
+	
 	apiGroups.forEach(function(group) {
 		// Mainmenu-Entry.
 		nav.push({
@@ -158,22 +171,12 @@ require([
 		}); // forEach
 	}); // forEach
 
-	// Mainmenu "General" Entry.
-	if(apiProject.apidoc)
-	{
-		nav.push({
-			group: "_",
-			isHeader: true,
-			title: locale.__("General"),
-			isFixed: true
-		});
-	}
-
 	/**
 	 * Render Pagetitle.
 	 */
 	var title = apiProject.name + " - " + apiProject.version;
-	$(document).attr("title", "apiDoc: " + title);
+	// $(document).attr("title", "apiDoc: " + title);
+	$(document).attr("title", apiProject.name);
 
 	/**
 	 * Render Sidenav.

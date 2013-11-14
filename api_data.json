@@ -425,7 +425,7 @@
       }
     },
     "permission": {
-      "name": "logged",
+      "name": "administrator",
       "title": "",
       "description": ""
     },
@@ -603,29 +603,15 @@
           },
           {
             "group": "201",
-            "type": "Person",
-            "field": "teacher.person",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "201",
-            "type": "Integer",
-            "field": "teacher.person.id",
+            "type": "String",
+            "field": "teacher.first_name",
             "optional": false,
             "description": ""
           },
           {
             "group": "201",
             "type": "String",
-            "field": "teacher.person.first_name",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "201",
-            "type": "String",
-            "field": "teacher.person.last_name",
+            "field": "teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -634,7 +620,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 201 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"person\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Anne\",\n\t\t\t\"last_name\": \"Laurent\"\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 201 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"first_name\": \"Anne\",\n\t\t\"last_name\": \"Laurent\"\t\n\t}\n}\n"
         }
       ]
     },
@@ -745,29 +731,15 @@
           },
           {
             "group": "200",
-            "type": "Person",
-            "field": "teacher.person",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "teacher.person.id",
+            "type": "String",
+            "field": "teacher.first_name",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "String",
-            "field": "teacher.person.first_name",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "teacher.person.last_name",
+            "field": "teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -776,7 +748,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"teachers\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"person\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"first_name\": \"Anne\",\n\t\t\t\t\"last_name\": \"Laurent\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"person\":\n\t\t\t{\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"first_name\": \"Bernard\",\n\t\t\t\t\"last_name\": \"Fallery\"\n\t\t\t{\n\t\t}\n\t]\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"teachers\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Anne\",\n\t\t\t\"last_name\": \"Laurent\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"first_name\": \"Bernard\",\n\t\t\t\"last_name\": \"Fallery\"\n\t\t}\n\t]\n}\n"
         }
       ]
     },
@@ -846,29 +818,15 @@
           },
           {
             "group": "200",
-            "type": "Person",
-            "field": "teacher.person",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "teacher.person.id",
+            "type": "String",
+            "field": "teacher.first_name",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "String",
-            "field": "teacher.person.first_name",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "teacher.person.last_name",
+            "field": "teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -877,7 +835,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"person\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Anne\",\n\t\t\t\"last_name\": \"Laurent\"\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"first_name\": \"Anne\",\n\t\t\"last_name\": \"Laurent\"\n\t}\n}\n"
         }
       ]
     },
@@ -918,7 +876,7 @@
       }
     },
     "permission": {
-      "name": "logged",
+      "name": "administrator",
       "title": "",
       "description": ""
     },
@@ -975,29 +933,15 @@
           },
           {
             "group": "200",
-            "type": "Person",
-            "field": "teacher.person",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "teacher.person.id",
+            "type": "String",
+            "field": "teacher.first_name",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "String",
-            "field": "teacher.person.first_name",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "teacher.person.last_name",
+            "field": "teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -1006,7 +950,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"person\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Anne\",\n\t\t\t\"last_name\": \"Laurent\"\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"first_name\": \"Anne\",\n\t\t\"last_name\": \"Laurent\"\n\t}\n}\n"
         }
       ]
     },
@@ -1376,7 +1320,7 @@
       }
     },
     "permission": {
-      "name": "logged",
+      "name": "administrator",
       "title": "",
       "description": ""
     },
@@ -1490,7 +1434,7 @@
           {
             "group": "Parameter",
             "type": "Integer",
-            "field": "user.person_id",
+            "field": "user.teacher_id",
             "optional": false,
             "description": ""
           }
@@ -1554,71 +1498,29 @@
           },
           {
             "group": "201",
-            "type": "Person",
-            "field": "user.person",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "201",
-            "type": "Integer",
-            "field": "user.person.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "201",
-            "type": "String",
-            "field": "user.person.first_name",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "201",
-            "type": "String",
-            "field": "user.person.last_name",
+            "type": "Boolean",
+            "field": "user.administrator",
             "optional": false,
             "description": ""
           },
           {
             "group": "201",
             "type": "Teacher",
-            "field": "user.person.teacher",
+            "field": "user.teacher",
             "optional": false,
             "description": ""
           },
           {
             "group": "201",
-            "type": "Integer",
-            "field": "user.person.teacher.id",
+            "type": "String",
+            "field": "user.teacher.first_name",
             "optional": false,
             "description": ""
           },
           {
             "group": "201",
-            "type": "Manager",
-            "field": "user.person.teacher.manager",
-            "optional": true,
-            "description": "if module_manager"
-          },
-          {
-            "group": "201",
-            "type": "Integer",
-            "field": "user.person.teacher.manager.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "201",
-            "type": "Administrator",
-            "field": "user.person.teacher.administrator",
-            "optional": true,
-            "description": "if administrator"
-          },
-          {
-            "group": "201",
-            "type": "Integer",
-            "field": "user.person.teacher.administrator.id",
+            "type": "String",
+            "field": "user.teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -1627,7 +1529,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 201 OK\n{\n\t\"user\": \n\t{\n\t\t\"id\": 13,\n\t\t\"username\": \"marcdumas\",\n\t\t\"person\": {\n\t\t\t\"id\": 13,\n\t\t\t\"first_name\": \"Marc\",\n\t\t\t\"last_name\": \"Dumas\",\n\t\t\t\"teacher\": {\n\t\t\t\t\"id\": 1\n\t\t\t}\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 201 OK\n{\n\t\"user\": \n\t{\n\t\t\"id\": 1,\n\t\t\"username\": \"marcdumas\",\n\t\t\"administrator\": false,\n\t\t\"teacher\": \n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Marc\",\n\t\t\t\"last_name\": \"Dumas\"\n\t\t}\n\t}\n}\n"
         }
       ]
     },
@@ -1654,7 +1556,7 @@
       }
     },
     "permission": {
-      "name": "me",
+      "name": "administrator",
       "title": "",
       "description": ""
     },
@@ -1745,71 +1647,29 @@
           },
           {
             "group": "200",
-            "type": "Person",
-            "field": "user.person",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "user.person.first_name",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "user.person.last_name",
+            "type": "Boolean",
+            "field": "user.administrator",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "Teacher",
-            "field": "user.person.teacher",
+            "field": "user.teacher",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.id",
+            "type": "String",
+            "field": "user.teacher.first_name",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
-            "type": "Manager",
-            "field": "user.person.teacher.manager",
-            "optional": true,
-            "description": "if module_manager"
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.manager.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Administrator",
-            "field": "user.person.teacher.administrator",
-            "optional": true,
-            "description": "if administrator"
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.administrator.id",
+            "type": "String",
+            "field": "user.teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -1818,7 +1678,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"users\": \n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"username\": \"annelaurent\",\n\t\t\t\"person\": {\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"first_name\": \"Anne\",\n\t\t\t\t\"last_name\": \"Laurent\",\n\t\t\t\t\"teacher\": {\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"manager\": {\n\t\t\t\t\t\t\"id\": 1\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"users\": \n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"username\": \"annelaurent\",\n\t\t\t\"administrator\": \"false\",\n\t\t\t\"teacher\": \n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"first_name\": \"Anne\",\n\t\t\t\t\"last_name\": \"Laurent\"\n\t\t\t}\n\t\t}\n\t]\n}\n"
         }
       ]
     },
@@ -1895,71 +1755,29 @@
           },
           {
             "group": "200",
-            "type": "Person",
-            "field": "user.person",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "user.person.first_name",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "user.person.last_name",
+            "type": "Boolean",
+            "field": "user.administrator",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "Teacher",
-            "field": "user.person.teacher",
+            "field": "user.teacher",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.id",
+            "type": "String",
+            "field": "user.teacher.first_name",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
-            "type": "Manager",
-            "field": "user.person.teacher.manager",
-            "optional": true,
-            "description": "if module_manager"
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.manager.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Administrator",
-            "field": "user.person.teacher.administrator",
-            "optional": true,
-            "description": "if administrator"
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.administrator.id",
+            "type": "String",
+            "field": "user.teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -1968,7 +1786,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"user\": \n\t{\n\t\t\"id\": 13,\n\t\t\"username\": \"marcdumas\",\n\t\t\"person\": {\n\t\t\t\"id\": 13,\n\t\t\t\"first_name\": \"Marc\",\n\t\t\t\"last_name\": \"Dumas\",\n\t\t\t\"teacher\": {\n\t\t\t\t\"id\": 1\n\t\t\t}\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"user\": \n\t{\n\t\t\"id\": 1,\n\t\t\"username\": \"marcdumas\",\n\t\t\"administrator\": false,\n\t\t\"teacher\": \n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Marc\",\n\t\t\t\"last_name\": \"Dumas\"\n\t\t}\n\t}\n}\n"
         }
       ]
     },
@@ -2046,71 +1864,29 @@
           },
           {
             "group": "200",
-            "type": "Person",
-            "field": "user.person",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "user.person.first_name",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "user.person.last_name",
+            "type": "Boolean",
+            "field": "user.administrator",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "Teacher",
-            "field": "user.person.teacher",
+            "field": "user.teacher",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.id",
+            "type": "String",
+            "field": "user.teacher.first_name",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
-            "type": "Manager",
-            "field": "user.person.teacher.manager",
-            "optional": true,
-            "description": "if module_manager"
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.manager.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Administrator",
-            "field": "user.person.teacher.administrator",
-            "optional": true,
-            "description": "if administrator"
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.administrator.id",
+            "type": "String",
+            "field": "user.teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -2119,7 +1895,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImFubmVsYXVyZW50MTM4NDAwNDg1NDY0MiI.vO6uOg0ehKkjCUaXhSgROw7RyQ6hFjsuzj9Cz14jWK8\",\n\t\"user\": \n\t{\n\t\t\"id\": 13,\n\t\t\"username\": \"marcdumas\",\n\t\t\"person\": {\n\t\t\t\"id\": 13,\n\t\t\t\"first_name\": \"Marc\",\n\t\t\t\"last_name\": \"Dumas\",\n\t\t\t\"teacher\": {\n\t\t\t\t\"id\": 1\n\t\t\t}\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImFubmVsYXVyZW50MTM4NDAwNDg1NDY0MiI.vO6uOg0ehKkjCUaXhSgROw7RyQ6hFjsuzj9Cz14jWK8\",\n\t\"user\": \n\t{\n\t\t\"id\": 1,\n\t\t\"username\": \"marcdumas\",\n\t\t\"administrator\": false,\n\t\t\"teacher\": \n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Marc\",\n\t\t\t\"last_name\": \"Dumas\"\n\t\t}\n\t}\n}\n"
         }
       ]
     },
@@ -2166,7 +1942,7 @@
           {
             "group": "Parameter",
             "type": "Integer",
-            "field": "user.person_id",
+            "field": "user.teacher_id",
             "optional": false,
             "description": ""
           }
@@ -2238,71 +2014,29 @@
           },
           {
             "group": "200",
-            "type": "Person",
-            "field": "user.person",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "user.person.first_name",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "user.person.last_name",
+            "type": "Boolean",
+            "field": "user.administrator",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "Teacher",
-            "field": "user.person.teacher",
+            "field": "user.teacher",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.id",
+            "type": "String",
+            "field": "user.teacher.first_name",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
-            "type": "Manager",
-            "field": "user.person.teacher.manager",
-            "optional": true,
-            "description": "if module_manager"
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.manager.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Administrator",
-            "field": "user.person.teacher.administrator",
-            "optional": true,
-            "description": "if administrator"
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "user.person.teacher.administrator.id",
+            "type": "String",
+            "field": "user.teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -2311,7 +2045,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"user\": \n\t{\n\t\t\"id\": 13,\n\t\t\"username\": \"marcdumas\",\n\t\t\"person\": {\n\t\t\t\"id\": 13,\n\t\t\t\"first_name\": \"Marc\",\n\t\t\t\"last_name\": \"Dumas\",\n\t\t\t\"teacher\": {\n\t\t\t\t\"id\": 1\n\t\t\t}\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t{\n\t\t\"id\": 1,\n\t\t\"username\": \"marcdumas\",\n\t\t\"administrator\": true,\n\t\t\"teacher\": \n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Marc\",\n\t\t\t\"last_name\": \"Dumas\"\n\t\t}\n\t}\n}\n"
         }
       ]
     },
