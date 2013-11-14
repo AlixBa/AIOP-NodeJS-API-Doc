@@ -1,6 +1,534 @@
 define({ api: [
   {
     "type": "post",
+    "url": "/subjects",
+    "title": "Create",
+    "name": "SubjectCreate",
+    "group": "Subject",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Subject",
+            "field": "subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "subject.module_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Subject found with missing params<br/>Subject not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "Subject",
+            "field": "subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Module",
+            "field": "subject.module",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "subject.module.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "subject.module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "subject.module.module_manager_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 OK\n{\n\t\"subject\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception par Objet\",\n\t\t\"module\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"module_manager_id\": 1\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\subject.js"
+  },
+  {
+    "type": "delete",
+    "url": "/subjects/:id",
+    "title": "Delete",
+    "name": "SubjectDelete",
+    "group": "Subject",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Subject not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\subject.js"
+  },
+  {
+    "type": "get",
+    "url": "/subjects",
+    "title": "List",
+    "name": "SubjectList",
+    "group": "Subject",
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "subjects",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "subject_from_subjects",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Module",
+            "field": "subject.module",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "subject.module.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "subject.module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "subject.module.module_manager_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"subjects\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception par Objet\",\n\t\t\t\"module\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\t\"module_manager_id\": 1\n\t\t\t}\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\subject.js"
+  },
+  {
+    "type": "get",
+    "url": "/subjects/:id",
+    "title": "Show",
+    "name": "SubjectShow",
+    "group": "Subject",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Subject not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Module",
+            "field": "subject.module",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "subject.module.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "subject.module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "subject.module.module_manager_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"subject\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception par Objet\",\n\t\t\"module\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"module_manager_id\": 1\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\subject.js"
+  },
+  {
+    "type": "put",
+    "url": "/subjects/:id",
+    "title": "Update",
+    "name": "SubjectUpdate",
+    "group": "Subject",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Subject",
+            "field": "subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "subject.module_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Subject found with missing params<br/>Subject not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Subject not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Module",
+            "field": "subject.module",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "subject.module.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "subject.module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "subject.module.module_manager_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"subject\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception par Objet\",\n\t\t\"module\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"module_manager_id\": 1\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\subject.js"
+  },
+  {
+    "type": "post",
     "url": "/teachers",
     "title": "Create",
     "name": "TeacherCreate",
@@ -75,8 +603,29 @@ define({ api: [
           },
           {
             "group": "201",
+            "type": "Person",
+            "field": "teacher.person",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
             "type": "Integer",
-            "field": "teacher.person_id",
+            "field": "teacher.person.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "teacher.person.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "teacher.person.last_name",
             "optional": false,
             "description": ""
           }
@@ -85,7 +634,7 @@ define({ api: [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 201 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"person_id\": 1\n\t}\n}\n"
+          "content": "HTTP/1.1 201 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"person\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Anne\",\n\t\t\t\"last_name\": \"Laurent\"\n\t\t}\n\t}\n}\n"
         }
       ]
     },
@@ -196,8 +745,29 @@ define({ api: [
           },
           {
             "group": "200",
+            "type": "Person",
+            "field": "teacher.person",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
             "type": "Integer",
-            "field": "teacher.person_id",
+            "field": "teacher.person.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teacher.person.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teacher.person.last_name",
             "optional": false,
             "description": ""
           }
@@ -206,7 +776,7 @@ define({ api: [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"teachers\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"person_id\": 1\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"person_id\": 2\n\t\t}\n\t]\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"teachers\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"person\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"first_name\": \"Anne\",\n\t\t\t\t\"last_name\": \"Laurent\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"person\":\n\t\t\t{\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"first_name\": \"Bernard\",\n\t\t\t\t\"last_name\": \"Fallery\"\n\t\t\t{\n\t\t}\n\t]\n}\n"
         }
       ]
     },
@@ -276,8 +846,29 @@ define({ api: [
           },
           {
             "group": "200",
+            "type": "Person",
+            "field": "teacher.person",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
             "type": "Integer",
-            "field": "teacher.person_id",
+            "field": "teacher.person.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teacher.person.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teacher.person.last_name",
             "optional": false,
             "description": ""
           }
@@ -286,7 +877,7 @@ define({ api: [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"person_id\": 1\n\t}\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"person\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Anne\",\n\t\t\t\"last_name\": \"Laurent\"\n\t\t}\n\t}\n}\n"
         }
       ]
     },
@@ -384,8 +975,29 @@ define({ api: [
           },
           {
             "group": "200",
+            "type": "Person",
+            "field": "teacher.person",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
             "type": "Integer",
-            "field": "teacher.person_id",
+            "field": "teacher.person.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teacher.person.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teacher.person.last_name",
             "optional": false,
             "description": ""
           }
@@ -394,7 +1006,7 @@ define({ api: [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"person_id\": 1\n\t}\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"teacher\":\n\t{\n\t\t\"id\": 1,\n\t\t\"person\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Anne\",\n\t\t\t\"last_name\": \"Laurent\"\n\t\t}\n\t}\n}\n"
         }
       ]
     },
