@@ -43,7 +43,7 @@
             "group": "400",
             "field": "message",
             "optional": false,
-            "description": "LessonType found with missing params<br/>LessonType not found in body"
+            "description": "Lesson_type found with missing params<br/>Lesson_type not found in body"
           }
         ],
         "401": [
@@ -131,7 +131,7 @@
             "group": "404",
             "field": "message",
             "optional": false,
-            "description": "LessonType not found"
+            "description": "Lesson_type not found"
           }
         ]
       }
