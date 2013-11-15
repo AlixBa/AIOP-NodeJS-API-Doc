@@ -1,6 +1,1394 @@
 [
   {
     "type": "post",
+    "url": "/lesson_types",
+    "title": "Create",
+    "name": "LessonTypeCreate",
+    "group": "LessonType",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "LessonType",
+            "field": "lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "lesson_type.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "LessonType found with missing params<br/>LessonType not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "LessonType",
+            "field": "lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "lesson_type.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 OK\n{\n\t\"lesson_type\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"TP\"\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson_type.js"
+  },
+  {
+    "type": "delete",
+    "url": "/lesson_types/:id",
+    "title": "Delete",
+    "name": "LessonTypeDelete",
+    "group": "LessonType",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "LessonType not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson_type.js"
+  },
+  {
+    "type": "get",
+    "url": "/lesson_types",
+    "title": "List",
+    "name": "LessonTypeList",
+    "group": "LessonType",
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "lesson_types",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "LessonType",
+            "field": "lesson_type_from_lesson_types",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "lesson_type.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"lesson_types\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"TP\"\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson_type.js"
+  },
+  {
+    "type": "get",
+    "url": "/lesson_types/:id",
+    "title": "Show",
+    "name": "LessonTypeShow",
+    "group": "LessonType",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Lesson_type not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "LessonType",
+            "field": "lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "lesson_type.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"lesson_type\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"TP\"\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson_type.js"
+  },
+  {
+    "type": "put",
+    "url": "/lesson_types/:id",
+    "title": "Update",
+    "name": "LessonTypeUpdate",
+    "group": "LessonType",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "LessonType",
+            "field": "lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "lesson_type.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Lesson_type found with missing params<br/>Lesson_type not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Lesson_type not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "LessonType",
+            "field": "lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "lesson_type.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"lesson_type\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"TP\"\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson_type.js"
+  },
+  {
+    "type": "post",
+    "url": "/modules",
+    "title": "Create",
+    "name": "ModuleCreate",
+    "group": "Module",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Module",
+            "field": "module",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "module.teacher_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Module found with missing params<br/>Module not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "Module",
+            "field": "module",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "module.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "module.teacher_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 OK\n{\n\t\"module\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\"teacher_id\": 1\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\module.js"
+  },
+  {
+    "type": "delete",
+    "url": "/modules/:id",
+    "title": "Delete",
+    "name": "ModuleDelete",
+    "group": "Module",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Module not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\module.js"
+  },
+  {
+    "type": "get",
+    "url": "/modules",
+    "title": "List",
+    "name": "ModuleList",
+    "group": "Module",
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "modules",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Module",
+            "field": "module_from_modules",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "module.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "module.teacher_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"modules\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"teacher_id\": 1\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\module.js"
+  },
+  {
+    "type": "get",
+    "url": "/modules/:id",
+    "title": "Show",
+    "name": "ModuleShow",
+    "group": "Module",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Module not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Module",
+            "field": "module",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "module.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "module.teacher_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"module\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\"teacher_id\": 1\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\module.js"
+  },
+  {
+    "type": "put",
+    "url": "/modules/:id",
+    "title": "Update",
+    "name": "ModuleUpdate",
+    "group": "Module",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Module",
+            "field": "module",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "module.teacher_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Module found with missing params<br/>Module not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Module not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Module",
+            "field": "module",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "module.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "module.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "module.teacher_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"module\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\"teacher_id\": 1\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\module.js"
+  },
+  {
+    "type": "post",
+    "url": "/rooms",
+    "title": "Create",
+    "name": "RoomCreate",
+    "group": "Room",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Room",
+            "field": "room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "room.building_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Room found with missing params<br/>Room not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "Room",
+            "field": "room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Building",
+            "field": "room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "room.building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 OK\n{\n\t\"room\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Amphithéâtre\",\n\t\t\"capacity\": 200,\n\t\t\"building\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Polytech\"\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\room.js"
+  },
+  {
+    "type": "delete",
+    "url": "/rooms/:id",
+    "title": "Delete",
+    "name": "RoomDelete",
+    "group": "Room",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Room not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\room.js"
+  },
+  {
+    "type": "get",
+    "url": "/rooms",
+    "title": "List",
+    "name": "RoomList",
+    "group": "Room",
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "rooms",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Room",
+            "field": "room_from_rooms",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "room.building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"rooms\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Amphithéâtre\",\n\t\t\t\"capacity\": 200,\n\t\t\t\"building\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"label\": \"Polytech\"\n\t\t\t}\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\room.js"
+  },
+  {
+    "type": "get",
+    "url": "/rooms/:id",
+    "title": "Show",
+    "name": "RoomShow",
+    "group": "Room",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Room not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Room",
+            "field": "room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "room.building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"room\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Amphithéâtre\",\n\t\t\"capacity\": 200,\n\t\t\"building\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Polytech\"\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\room.js"
+  },
+  {
+    "type": "put",
+    "url": "/rooms/:id",
+    "title": "Update",
+    "name": "RoomUpdate",
+    "group": "Room",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Room",
+            "field": "room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "room.building_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Room found with missing params<br/>Room not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Room not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Room",
+            "field": "room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "room.building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"room\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Amphithéâtre\",\n\t\t\"capacity\": 200,\n\t\t\"building\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Polytech\"\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\room.js"
+  },
+  {
+    "type": "post",
     "url": "/subjects",
     "title": "Create",
     "name": "SubjectCreate",
@@ -545,8 +1933,15 @@
           },
           {
             "group": "Parameter",
-            "type": "Integer",
-            "field": "teacher.person_id",
+            "type": "String",
+            "field": "teacher.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "teacher.last_name",
             "optional": false,
             "description": ""
           }
@@ -867,8 +2262,15 @@
           },
           {
             "group": "Parameter",
-            "type": "Integer",
-            "field": "teacher.person_id",
+            "type": "String",
+            "field": "teacher.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "teacher.last_name",
             "optional": false,
             "description": ""
           }
