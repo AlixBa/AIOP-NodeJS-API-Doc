@@ -1,6 +1,408 @@
 define({ api: [
   {
     "type": "post",
+    "url": "/buildings",
+    "title": "Create",
+    "name": "BuildingCreate",
+    "group": "Building",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Building",
+            "field": "building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Building found with missing params<br/>Building not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "Building",
+            "field": "building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 OK\n{\n\t\"building\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Polytech\"\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\building.js"
+  },
+  {
+    "type": "delete",
+    "url": "/buildings/:id",
+    "title": "Delete",
+    "name": "BuildingDelete",
+    "group": "Building",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Building not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\building.js"
+  },
+  {
+    "type": "get",
+    "url": "/buildings",
+    "title": "List",
+    "name": "BuildingList",
+    "group": "Building",
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "buildings",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "building_from_buildings",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"buildings\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Polytech\"\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\building.js"
+  },
+  {
+    "type": "get",
+    "url": "/buildings/:id",
+    "title": "Show",
+    "name": "BuildingShow",
+    "group": "Building",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Building not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"building\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Polytech\"\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\building.js"
+  },
+  {
+    "type": "put",
+    "url": "/buildings/:id",
+    "title": "Update",
+    "name": "BuildingUpdate",
+    "group": "Building",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Building",
+            "field": "building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Building found with missing params<br/>Building not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Building not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "building.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"building\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Polytech\"\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\building.js"
+  },
+  {
+    "type": "post",
     "url": "/lesson_types",
     "title": "Create",
     "name": "LessonTypeCreate",
