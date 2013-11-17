@@ -2554,6 +2554,177 @@ define({ api: [
   },
   {
     "type": "get",
+    "url": "/teachers/:id/reservations",
+    "title": "Reservations",
+    "name": "TeacherReservations",
+    "group": "Teacher",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Teacher not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "reservations",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Reservation",
+            "field": "reservation_from_reservations",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "TimeSlot",
+            "field": "reservation.time_slot",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.time_slot.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.start",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.end",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Room",
+            "field": "reservation.room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "reservation.room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.building.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Next",
+            "field": "otherparems",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"reservations\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"date\": \"2013-11-17T00:00:00.000Z\",\n\t\t\t\"time_slot\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"start\": \"14:00:00\",\n\t\t\t\t\"end\": \"15:30:00\"\n\t\t\t},\n\t\t\t\"room\":\n\t\t\t{\n\t\t\t\t\"id\": 11,\n\t\t\t\t\"label\": \"SC101\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"building\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"Polytech\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"teaching\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"group_id\": 4,\n\t\t\t\t\"lesson_id\": 13,\n\t\t\t\t\"teacher_id\": 7\n\t\t\t},\n\t\t\t\"reservation_request\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"date\": \"2013-11-22T14:00:00.000Z\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"time_slot_id\": 4,\n\t\t\t\t\"teaching_id\": 13\n\t\t\t}\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\teacher.js"
+  },
+  {
+    "type": "get",
     "url": "/teachers/:id",
     "title": "Show",
     "name": "TeacherShow",
@@ -3237,6 +3408,13 @@ define({ api: [
           },
           {
             "group": "Parameter",
+            "type": "Boolean",
+            "field": "user.administrator",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
             "type": "Integer",
             "field": "user.teacher_id",
             "optional": false,
@@ -3740,6 +3918,13 @@ define({ api: [
             "group": "Parameter",
             "type": "String",
             "field": "user.password",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "field": "user.administrator",
             "optional": false,
             "description": ""
           },
