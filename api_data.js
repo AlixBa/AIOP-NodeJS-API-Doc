@@ -727,7 +727,7 @@ define({ api: [
     "type": "get",
     "url": "/groups/:id",
     "title": "Teachings",
-    "name": "GroupShow",
+    "name": "GroupTeachings",
     "group": "Group",
     "parameter": {
       "fields": {
