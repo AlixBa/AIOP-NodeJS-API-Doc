@@ -403,6 +403,635 @@
   },
   {
     "type": "post",
+    "url": "/groups",
+    "title": "Create",
+    "name": "GroupCreate",
+    "group": "Group",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Group",
+            "field": "group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "group.parent_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Group found with missing params<br/>Group not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "Group",
+            "field": "group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "group.parent_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 OK\n{\n\t\"group\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"IG4\",\n\t\t\"parent_id\": 1\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\group.js"
+  },
+  {
+    "type": "delete",
+    "url": "/groups/:id",
+    "title": "Delete",
+    "name": "GroupDelete",
+    "group": "Group",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Group not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\group.js"
+  },
+  {
+    "type": "get",
+    "url": "/groups",
+    "title": "List",
+    "name": "GroupList",
+    "group": "Group",
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "groups",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Group",
+            "field": "group_from_groups",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "group.parent_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"groups\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"IG4\",\n\t\t\t\"parent_id\": 1\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\group.js"
+  },
+  {
+    "type": "get",
+    "url": "/groups/:id",
+    "title": "Show",
+    "name": "GroupShow",
+    "group": "Group",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Group not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Group",
+            "field": "group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "group.parent_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"group\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"IG4\",\n\t\t\"parent_id\": 1\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\group.js"
+  },
+  {
+    "type": "get",
+    "url": "/groups/:id",
+    "title": "Teachings",
+    "name": "GroupShow",
+    "group": "Group",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Group not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "teachings",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teaching",
+            "field": "teaching_from_teachings",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "teaching.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Group",
+            "field": "teaching.group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "teaching.group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teaching.group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "teaching.group.parent_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teacher",
+            "field": "teaching.teacher",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "teaching.teacher.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teaching.teacher.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teaching.teacher.last_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "teaching.subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "teaching.subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teaching.subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "teaching.subject.module_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "LessonType",
+            "field": "teaching.lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "teaching.lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teaching.lesson_type.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"teachings\":\n\t[\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"group\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\"parent_id\": 1\n\t\t\t},\n\t\t\t\"teacher\":\n\t\t\t{\n\t\t\t\t\"id\": 12,\n\t\t\t\t\"first_name\": \"Michel\",\n\t\t\t\t\"last_name\": \"Sala\"\n\t\t\t},\n\t\t\t\"subject\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"label\": \"Conception par Objet\",\n\t\t\t\t\"module_id\": 1\n\t\t\t},\n\t\t\t\"lesson_type\":\n\t\t\t{\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"label\": \"TD\"\n\t\t\t}\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\group.js"
+  },
+  {
+    "type": "put",
+    "url": "/groups/:id",
+    "title": "Update",
+    "name": "GroupUpdate",
+    "group": "Group",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Group",
+            "field": "group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "group.parent_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Group found with missing params<br/>Group not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Group not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Group",
+            "field": "group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "group.parent_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"group\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"IG4\",\n\t\t\"parent_id\": 1\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\group.js"
+  },
+  {
+    "type": "post",
     "url": "/lesson_types",
     "title": "Create",
     "name": "LessonTypeCreate",
@@ -2706,8 +3335,162 @@
           },
           {
             "group": "200",
-            "type": "Next",
-            "field": "otherparems",
+            "type": "Teaching",
+            "field": "reservation.teaching",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Group",
+            "field": "reservation.teaching.group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.parent_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teacher",
+            "field": "reservation.teaching.teacher",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.teacher.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.last_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "reservation.teaching.subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.subject.module_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "LessonType",
+            "field": "reservation.teaching.lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson_type.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "ReservationRequest",
+            "field": "reservation.reservation_request",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.reservation_request.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.reservation_request.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.reservation_request.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.reservation_request.time_slot_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.reservation_request.teaching_id",
             "optional": false,
             "description": ""
           }
@@ -2716,7 +3499,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"reservations\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"date\": \"2013-11-17T00:00:00.000Z\",\n\t\t\t\"time_slot\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"start\": \"14:00:00\",\n\t\t\t\t\"end\": \"15:30:00\"\n\t\t\t},\n\t\t\t\"room\":\n\t\t\t{\n\t\t\t\t\"id\": 11,\n\t\t\t\t\"label\": \"SC101\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"building\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"Polytech\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"teaching\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"group_id\": 4,\n\t\t\t\t\"lesson_id\": 13,\n\t\t\t\t\"teacher_id\": 7\n\t\t\t},\n\t\t\t\"reservation_request\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"date\": \"2013-11-22T14:00:00.000Z\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"time_slot_id\": 4,\n\t\t\t\t\"teaching_id\": 13\n\t\t\t}\n\t\t}\n\t]\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"reservations\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"date\": \"2013-11-17T00:00:00.000Z\",\n\t\t\t\"time_slot\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"start\": \"14:00:00\",\n\t\t\t\t\"end\": \"15:30:00\"\n\t\t\t},\n\t\t\t\"room\":\n\t\t\t{\n\t\t\t\t\"id\": 11,\n\t\t\t\t\"label\": \"SC101\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"building\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"Polytech\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"teaching\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"group\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 4,\n\t\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\t\"parent_id\": 1\n\t\t\t\t},\n\t\t\t\t\"teacher\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 7,\n\t\t\t\t\t\"first_name\": \"Thomas\",\n\t\t\t\t\t\"last_name\": \"Izard\"\n\t\t\t\t},\n\t\t\t\t\"subject\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 5,\n\t\t\t\t\t\"label\": \"Simulation d'Entreprise\",\n\t\t\t\t\t\"module_id\": 3\n\t\t\t\t},\n\t\t\t\t\"lesson_type\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"CM\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"reservation_request\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"date\": \"2013-11-22T14:00:00.000Z\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"time_slot_id\": 4,\n\t\t\t\t\"teaching_id\": 13\n\t\t\t}\n\t\t}\n\t]\n}\n"
         }
       ]
     },
