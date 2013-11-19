@@ -5,6 +5,6 @@ define({
   "apidoc": "<h1>Information</h1>\n\n<h2>Authentication</h2>\n\n<p>All the methods of the api, except the sign in one, need the user to be logged in, at least. \nFirst, you'll need to send your credentials to the /signin URI and get the access_token in return. \nThis access_token should be sent with every request, then.</p>\n\n<ul>\n<li>Query <code>url?access_token=token</code><br/></li>\n<li>Body <code>{\"access_token\":\"token\"}</code><br/></li>\n<li>Header <code>Authorization: Bearer token</code><br/></li>\n</ul>\n\n<h2>Authorization</h2>\n\n<p>When a method send back a 401 Unauthorized, don't forget to check the WWW-Authenticate header to\nget some additional details on the failure.</p>",
   "generator": {
     "version": "0.2.6",
-    "time": "2013-11-18T09:04:54.470Z"
+    "time": "2013-11-19T08:07:49.902Z"
   }
 });

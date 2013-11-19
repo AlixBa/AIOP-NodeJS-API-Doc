@@ -725,8 +725,8 @@ define({ api: [
   },
   {
     "type": "get",
-    "url": "/groups/:id",
-    "title": "Teachings",
+    "url": "/groups/:id/teachings_available",
+    "title": "TeachingsAvailable",
     "name": "GroupTeachings",
     "group": "Group",
     "parameter": {
@@ -849,50 +849,71 @@ define({ api: [
           },
           {
             "group": "200",
-            "type": "Subject",
-            "field": "teaching.subject",
+            "type": "Lesson",
+            "field": "teaching.lesson",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "Integer",
-            "field": "teaching.subject.id",
+            "field": "teaching.lesson.id",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "String",
-            "field": "teaching.subject.label",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "teaching.subject.module_id",
+            "field": "teaching.lesson.label",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "LessonType",
-            "field": "teaching.lesson_type",
+            "field": "teaching.lesson.lesson_type",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "Integer",
-            "field": "teaching.lesson_type.id",
+            "field": "teaching.lesson.lesson_type.id",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "String",
-            "field": "teaching.lesson_type.label",
+            "field": "teaching.lesson.lesson_type.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "teaching.lesson.subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "teaching.lesson.subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "teaching.lesson.subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "teaching.lesson.subject.module_id",
             "optional": false,
             "description": ""
           }
@@ -901,7 +922,7 @@ define({ api: [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"teachings\":\n\t[\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"group\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\"parent_id\": 1\n\t\t\t},\n\t\t\t\"teacher\":\n\t\t\t{\n\t\t\t\t\"id\": 12,\n\t\t\t\t\"first_name\": \"Michel\",\n\t\t\t\t\"last_name\": \"Sala\"\n\t\t\t},\n\t\t\t\"subject\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"label\": \"Conception par Objet\",\n\t\t\t\t\"module_id\": 1\n\t\t\t},\n\t\t\t\"lesson_type\":\n\t\t\t{\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"label\": \"TD\"\n\t\t\t}\n\t\t}\n\t]\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"teachings\":\n\t[\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"group\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\"parent_id\": 1\n\t\t\t},\n\t\t\t\"teacher\":\n\t\t\t{\n\t\t\t\t\"id\": 12,\n\t\t\t\t\"first_name\": \"Michel\",\n\t\t\t\t\"last_name\": \"Sala\"\n\t\t\t},\n\t\t\t\"lesson\":\n\t\t\t{\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"label\": \"Cours 2\",\n\t\t\t\t\"lesson_type\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 2,\n\t\t\t\t\t\"label\": \"TD\"\n\t\t\t\t},\n\t\t\t\t\"subject\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"Conception par Objet\",\n\t\t\t\t\t\"module_id\": 1\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n}\n"
         }
       ]
     },
@@ -3405,92 +3426,71 @@ define({ api: [
           },
           {
             "group": "200",
-            "type": "Subject",
-            "field": "reservation.teaching.subject",
+            "type": "Lesson",
+            "field": "reservation.teaching.lesson",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "Integer",
-            "field": "reservation.teaching.subject.id",
+            "field": "reservation.teaching.lesson.id",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "String",
-            "field": "reservation.teaching.subject.label",
+            "field": "reservation.teaching.lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "reservation.teaching.lesson.subject",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "Integer",
-            "field": "reservation.teaching.subject.module_id",
+            "field": "reservation.teaching.lesson.subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.module_id",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "LessonType",
-            "field": "reservation.teaching.lesson_type",
+            "field": "reservation.teaching.lesson.lesson_type",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "Integer",
-            "field": "reservation.teaching.lesson_type.id",
+            "field": "reservation.teaching.lesson.lesson_type.id",
             "optional": false,
             "description": ""
           },
           {
             "group": "200",
             "type": "String",
-            "field": "reservation.teaching.lesson_type.label",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "ReservationRequest",
-            "field": "reservation.reservation_request",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "reservation.reservation_request.id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "String",
-            "field": "reservation.reservation_request.date",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "reservation.reservation_request.capacity",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "reservation.reservation_request.time_slot_id",
-            "optional": false,
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "Integer",
-            "field": "reservation.reservation_request.teaching_id",
+            "field": "reservation.teaching.lesson.lesson_type.label",
             "optional": false,
             "description": ""
           }
@@ -3499,7 +3499,7 @@ define({ api: [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"reservations\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"date\": \"2013-11-17T00:00:00.000Z\",\n\t\t\t\"time_slot\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"start\": \"14:00:00\",\n\t\t\t\t\"end\": \"15:30:00\"\n\t\t\t},\n\t\t\t\"room\":\n\t\t\t{\n\t\t\t\t\"id\": 11,\n\t\t\t\t\"label\": \"SC101\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"building\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"Polytech\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"teaching\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"group\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 4,\n\t\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\t\"parent_id\": 1\n\t\t\t\t},\n\t\t\t\t\"teacher\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 7,\n\t\t\t\t\t\"first_name\": \"Thomas\",\n\t\t\t\t\t\"last_name\": \"Izard\"\n\t\t\t\t},\n\t\t\t\t\"subject\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 5,\n\t\t\t\t\t\"label\": \"Simulation d'Entreprise\",\n\t\t\t\t\t\"module_id\": 3\n\t\t\t\t},\n\t\t\t\t\"lesson_type\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"CM\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"reservation_request\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"date\": \"2013-11-22T14:00:00.000Z\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"time_slot_id\": 4,\n\t\t\t\t\"teaching_id\": 13\n\t\t\t}\n\t\t}\n\t]\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"reservations\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"date\": \"2013-11-17T00:00:00.000Z\",\n\t\t\t\"time_slot\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"start\": \"14:00:00\",\n\t\t\t\t\"end\": \"15:30:00\"\n\t\t\t},\n\t\t\t\"room\":\n\t\t\t{\n\t\t\t\t\"id\": 11,\n\t\t\t\t\"label\": \"SC101\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"building\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"Polytech\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"teaching\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"group\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 4,\n\t\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\t\"parent_id\": 1\n\t\t\t\t},\n\t\t\t\t\"teacher\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 7,\n\t\t\t\t\t\"first_name\": \"Thomas\",\n\t\t\t\t\t\"last_name\": \"Izard\"\n\t\t\t\t},\n\t\t\t\t\"lesson\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 13,\n\t\t\t\t\t\"label\": \"Cours 1\",\n\t\t\t\t\t\"subject\":\n\t\t\t\t\t{\n\t\t\t\t\t\t\"id\": 5,\n\t\t\t\t\t\t\"label\": \"Simulation d'Entreprise\",\n\t\t\t\t\t\t\"module_id\": 3\n\t\t\t\t\t},\n\t\t\t\t\t\"lesson_type\":\n\t\t\t\t\t{\n\t\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\t\"label\": \"CM\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t}\n\t\t}\n\t]\n}\n"
         }
       ]
     },
