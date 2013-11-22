@@ -403,6 +403,408 @@
   },
   {
     "type": "post",
+    "url": "/characteristics",
+    "title": "Create",
+    "name": "CharacteristicCreate",
+    "group": "Characteristic",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Characteristic",
+            "field": "characteristic",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "characteristic.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Characteristic found with missing params<br/>Characteristic not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "Characteristic",
+            "field": "characteristic",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "characteristic.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "characteristic.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 OK\n{\n\t\"characteristic\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Projecteur\"\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\characteristic.js"
+  },
+  {
+    "type": "delete",
+    "url": "/characteristics/:id",
+    "title": "Delete",
+    "name": "CharacteristicDelete",
+    "group": "Characteristic",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Characteristic not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\characteristic.js"
+  },
+  {
+    "type": "get",
+    "url": "/characteristics",
+    "title": "List",
+    "name": "CharacteristicList",
+    "group": "Characteristic",
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "characteristics",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Characteristic",
+            "field": "characteristic_from_characteristics",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "characteristic.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "characteristic.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"characteristics\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Projecteur\"\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\characteristic.js"
+  },
+  {
+    "type": "get",
+    "url": "/characteristics/:id",
+    "title": "Show",
+    "name": "CharacteristicShow",
+    "group": "Characteristic",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Characteristic not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Characteristic",
+            "field": "characteristic",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "characteristic.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "characteristic.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"characteristic\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Projecteur\"\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\characteristic.js"
+  },
+  {
+    "type": "put",
+    "url": "/characteristics/:id",
+    "title": "Update",
+    "name": "CharacteristicUpdate",
+    "group": "Characteristic",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Characteristic",
+            "field": "characteristic",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "characteristic.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Characteristic found with missing params<br/>Characteristic not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Characteristic not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Characteristic",
+            "field": "characteristic",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "characteristic.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "characteristic.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"characteristic\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Projecteur\"\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\characteristic.js"
+  },
+  {
+    "type": "post",
     "url": "/groups",
     "title": "Create",
     "name": "GroupCreate",
@@ -630,6 +1032,310 @@
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n\t\"groups\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"IG4\",\n\t\t\t\"parent_id\": 1\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\group.js"
+  },
+  {
+    "type": "get",
+    "url": "/groups/:id/reservations",
+    "title": "Reservations",
+    "name": "GroupReservations",
+    "group": "Group",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Group not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "reservations",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Reservation",
+            "field": "reservation_from_reservations",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teacher",
+            "field": "reservation.teaching.teacher",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.teacher.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.last_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Group",
+            "field": "reservation.teaching.group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.parent_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Lesson",
+            "field": "reservation.teaching.lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "reservation.teaching.lesson.subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.module_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "LessonType",
+            "field": "reservation.teaching.lesson.lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.lesson_type.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Room",
+            "field": "reservation.room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "reservation.room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.building.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "TimeSlot",
+            "field": "reservation.time_slot",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.time_slot.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.start",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.end",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"reservations\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"date\": \"2013-11-22T00:00:00.000Z\",\n\t\t\t\"teaching\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"teacher\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 7,\n\t\t\t\t\t\"first_name\": \"Thomas\",\n\t\t\t\t\t\"last_name\": \"Izard\"\n\t\t\t\t},\n\t\t\t\t\"group\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 4,\n\t\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\t\"parent_id\": 1\n\t\t\t\t},\n\t\t\t\t\"lesson\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 13,\n\t\t\t\t\t\"label\": \"Cours 1\",\n\t\t\t\t\t\"subject\":\n\t\t\t\t\t{\n\t\t\t\t\t\t\"id\": 5,\n\t\t\t\t\t\t\"label\": \"Simulation d'Entreprise\",\n\t\t\t\t\t\t\"module_id\": 3\n\t\t\t\t\t},\n\t\t\t\t\t\"lesson_type\":\n\t\t\t\t\t{\n\t\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\t\"label\": \"CM\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"room\":\n\t\t\t{\n\t\t\t\t\"id\": 11,\n\t\t\t\t\"label\": \"SC101\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"building\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"Polytech\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"time_slot\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"start\": \"14:00:00\",\n\t\t\t\t\"end\": \"15:30:00\"\n\t\t\t}\n\t\t}\n\t]\n}\n"
         }
       ]
     },
@@ -1050,6 +1756,496 @@
     },
     "version": "0.0.0",
     "filename": "js\\group.js"
+  },
+  {
+    "type": "post",
+    "url": "/lessons",
+    "title": "Create",
+    "name": "LessonCreate",
+    "group": "Lesson",
+    "parameter": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.lesson_type_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.subject_id",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Lesson",
+            "field": "lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "lesson.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Lesson found with missing params<br/>Lesson not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "Lesson",
+            "field": "lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "lesson.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "lesson.lesson_type_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "lesson.subject_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 OK\n{\n\t\"lesson\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Cours 1\"\n\t\t\"lesson_type_id\": 1,\n\t\t\"subject_id\": 1\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson.js"
+  },
+  {
+    "type": "delete",
+    "url": "/lessons/:id",
+    "title": "Delete",
+    "name": "LessonDelete",
+    "group": "Lesson",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Lesson not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson.js"
+  },
+  {
+    "type": "get",
+    "url": "/lessons",
+    "title": "List",
+    "name": "LessonList",
+    "group": "Lesson",
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "lessons",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Lesson",
+            "field": "lesson_from_lessons",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.lesson_type_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.subject_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"lessons\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Cours 1\"\n\t\t\"lesson_type_id\": 1,\n\t\t\"subject_id\": 1\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson.js"
+  },
+  {
+    "type": "get",
+    "url": "/lessons/:id",
+    "title": "Show",
+    "name": "LessonShow",
+    "group": "Lesson",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Lesson not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Lesson",
+            "field": "lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.lesson_type_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.subject_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"lesson\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Cours 1\"\n\t\t\"lesson_type_id\": 1,\n\t\t\"subject_id\": 1\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson.js"
+  },
+  {
+    "type": "put",
+    "url": "/lessons/:id",
+    "title": "Update",
+    "name": "LessonUpdate",
+    "group": "Lesson",
+    "parameter": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.lesson_type_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.subject_id",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Lesson",
+            "field": "lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "lesson.label",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Lesson found with missing params<br/>Lesson not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Lesson not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Lesson",
+            "field": "lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.lesson_type_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "lesson.subject_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"lesson\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Cours 1\",\n\t\t\"lesson_type_id\": 1,\n\t\t\"subject_id\": 1\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\lesson.js"
   },
   {
     "type": "post",
