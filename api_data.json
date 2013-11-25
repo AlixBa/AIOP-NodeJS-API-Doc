@@ -3095,6 +3095,1332 @@
   },
   {
     "type": "post",
+    "url": "/reservations",
+    "title": "Create",
+    "name": "ReservationCreate",
+    "group": "Reservation",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Reservation",
+            "field": "reservation",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "reservation.time_slot_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "reservation.room_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "reservation.teaching_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "manager",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Reservation found with missing params<br/>Reservation not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "Reservation",
+            "field": "reservation",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Teaching",
+            "field": "reservation.teaching",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.teaching.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Teacher",
+            "field": "reservation.teaching.teacher",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.teaching.teacher.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.teaching.teacher.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.teaching.teacher.last_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Group",
+            "field": "reservation.teaching.group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.teaching.group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.teaching.group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.teaching.group.parent_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Lesson",
+            "field": "reservation.teaching.lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.teaching.lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Subject",
+            "field": "reservation.teaching.lesson.subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.teaching.lesson.subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.module_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "LessonType",
+            "field": "reservation.teaching.lesson.lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.teaching.lesson.lesson_type.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Room",
+            "field": "reservation.room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Building",
+            "field": "reservation.room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.room.building.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "TimeSlot",
+            "field": "reservation.time_slot",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "Integer",
+            "field": "reservation.time_slot.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.time_slot.start",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "201",
+            "type": "String",
+            "field": "reservation.time_slot.end",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 OK\n{\n\t\"reservation\":\n\t{\n\t\t\"id\": 1,\n\t\t\"date\": \"2013-11-22T00:00:00.000Z\",\n\t\t\"reservation\":\n\t\t{\n\t\t\t\"id\": 13,\n\t\t\t\"teacher\":\n\t\t\t{\n\t\t\t\t\"id\": 7,\n\t\t\t\t\"first_name\": \"Thomas\",\n\t\t\t\t\"last_name\": \"Izard\"\n\t\t\t},\n\t\t\t\"group\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\"parent_id\": 1\n\t\t\t},\n\t\t\t\"lesson\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"label\": \"Cours 1\",\n\t\t\t\t\"subject\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 5,\n\t\t\t\t\t\"label\": \"Simulation d'Entreprise\",\n\t\t\t\t\t\"module_id\": 3\n\t\t\t\t},\n\t\t\t\t\"lesson_type\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"CM\"\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t\"room\":\n\t\t{\n\t\t\t\"id\": 11,\n\t\t\t\"label\": \"SC101\",\n\t\t\t\"capacity\": 50,\n\t\t\t\"building\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"label\": \"Polytech\"\n\t\t\t}\n\t\t},\n\t\t\"time_slot\":\n\t\t{\n\t\t\t\"id\": 4,\n\t\t\t\"start\": \"14:00:00\",\n\t\t\t\"end\": \"15:30:00\"\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\reservation.js"
+  },
+  {
+    "type": "delete",
+    "url": "/reservations/:id",
+    "title": "Delete",
+    "name": "ReservationDelete",
+    "group": "Reservation",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Reservation not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\reservation.js"
+  },
+  {
+    "type": "get",
+    "url": "/reservations",
+    "title": "List",
+    "name": "ReservationList",
+    "group": "Reservation",
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "reservations",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Reservation",
+            "field": "reservation_from_reservations",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teaching",
+            "field": "reservation.teaching",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teacher",
+            "field": "reservation.teaching.teacher",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.teacher.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.last_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Group",
+            "field": "reservation.teaching.group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.parent_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Lesson",
+            "field": "reservation.teaching.lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "reservation.teaching.lesson.subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.module_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "LessonType",
+            "field": "reservation.teaching.lesson.lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.lesson_type.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Room",
+            "field": "reservation.room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "reservation.room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.building.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "TimeSlot",
+            "field": "reservation.time_slot",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.time_slot.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.start",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.end",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"reservations\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"date\": \"2013-11-22T00:00:00.000Z\",\n\t\t\t\"reservation\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"teacher\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 7,\n\t\t\t\t\t\"first_name\": \"Thomas\",\n\t\t\t\t\t\"last_name\": \"Izard\"\n\t\t\t\t},\n\t\t\t\t\"group\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 4,\n\t\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\t\"parent_id\": 1\n\t\t\t\t},\n\t\t\t\t\"lesson\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 13,\n\t\t\t\t\t\"label\": \"Cours 1\",\n\t\t\t\t\t\"subject\":\n\t\t\t\t\t{\n\t\t\t\t\t\t\"id\": 5,\n\t\t\t\t\t\t\"label\": \"Simulation d'Entreprise\",\n\t\t\t\t\t\t\"module_id\": 3\n\t\t\t\t\t},\n\t\t\t\t\t\"lesson_type\":\n\t\t\t\t\t{\n\t\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\t\"label\": \"CM\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"room\":\n\t\t\t{\n\t\t\t\t\"id\": 11,\n\t\t\t\t\"label\": \"SC101\",\n\t\t\t\t\"capacity\": 50,\n\t\t\t\t\"building\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"Polytech\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"time_slot\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"start\": \"14:00:00\",\n\t\t\t\t\"end\": \"15:30:00\"\n\t\t\t}\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\reservation.js"
+  },
+  {
+    "type": "get",
+    "url": "/reservations/:id",
+    "title": "Show",
+    "name": "ReservationShow",
+    "group": "Reservation",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Reservation not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Reservation",
+            "field": "reservation",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Reservation",
+            "field": "reservation_from_reservations",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teaching",
+            "field": "reservation.teaching",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teacher",
+            "field": "reservation.teaching.teacher",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.teacher.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.last_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Group",
+            "field": "reservation.teaching.group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.parent_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Lesson",
+            "field": "reservation.teaching.lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "reservation.teaching.lesson.subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.module_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "LessonType",
+            "field": "reservation.teaching.lesson.lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.lesson_type.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Room",
+            "field": "reservation.room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "reservation.room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.building.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "TimeSlot",
+            "field": "reservation.time_slot",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.time_slot.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.start",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.end",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"reservation\":\n\t{\n\t\t\"id\": 1,\n\t\t\"date\": \"2013-11-22T00:00:00.000Z\",\n\t\t\"reservation\":\n\t\t{\n\t\t\t\"id\": 13,\n\t\t\t\"teacher\":\n\t\t\t{\n\t\t\t\t\"id\": 7,\n\t\t\t\t\"first_name\": \"Thomas\",\n\t\t\t\t\"last_name\": \"Izard\"\n\t\t\t},\n\t\t\t\"group\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\"parent_id\": 1\n\t\t\t},\n\t\t\t\"lesson\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"label\": \"Cours 1\",\n\t\t\t\t\"subject\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 5,\n\t\t\t\t\t\"label\": \"Simulation d'Entreprise\",\n\t\t\t\t\t\"module_id\": 3\n\t\t\t\t},\n\t\t\t\t\"lesson_type\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"CM\"\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t\"room\":\n\t\t{\n\t\t\t\"id\": 11,\n\t\t\t\"label\": \"SC101\",\n\t\t\t\"capacity\": 50,\n\t\t\t\"building\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"label\": \"Polytech\"\n\t\t\t}\n\t\t},\n\t\t\"time_slot\":\n\t\t{\n\t\t\t\"id\": 4,\n\t\t\t\"start\": \"14:00:00\",\n\t\t\t\"end\": \"15:30:00\"\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\reservation.js"
+  },
+  {
+    "type": "put",
+    "url": "/reservations/:id",
+    "title": "Update",
+    "name": "ReservationUpdate",
+    "group": "Reservation",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Reservation",
+            "field": "reservation",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "reservation.time_slot_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "reservation.room_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "reservation.teaching_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "administrator",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "field": "SQLException",
+            "optional": false,
+            "description": "Exception sent by the database"
+          },
+          {
+            "group": "400",
+            "field": "message",
+            "optional": false,
+            "description": "Reservation found with missing params<br/>Reservation not found in body"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Reservation not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Reservation",
+            "field": "reservation",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Reservation",
+            "field": "reservation_from_reservations",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teaching",
+            "field": "reservation.teaching",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teacher",
+            "field": "reservation.teaching.teacher",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.teacher.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.first_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.teacher.last_name",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Group",
+            "field": "reservation.teaching.group",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.group.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.group.parent_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Lesson",
+            "field": "reservation.teaching.lesson",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Subject",
+            "field": "reservation.teaching.lesson.subject",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.subject.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.subject.module_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "LessonType",
+            "field": "reservation.teaching.lesson.lesson_type",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.teaching.lesson.lesson_type.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.teaching.lesson.lesson_type.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Room",
+            "field": "reservation.room",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Building",
+            "field": "reservation.room.building",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.room.building.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.room.building.label",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "TimeSlot",
+            "field": "reservation.time_slot",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation.time_slot.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.start",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation.time_slot.end",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"reservation\":\n\t{\n\t\t\"id\": 1,\n\t\t\"date\": \"2013-11-22T00:00:00.000Z\",\n\t\t\"reservation\":\n\t\t{\n\t\t\t\"id\": 13,\n\t\t\t\"teacher\":\n\t\t\t{\n\t\t\t\t\"id\": 7,\n\t\t\t\t\"first_name\": \"Thomas\",\n\t\t\t\t\"last_name\": \"Izard\"\n\t\t\t},\n\t\t\t\"group\":\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"label\": \"IG4 G1 ANG\",\n\t\t\t\t\"parent_id\": 1\n\t\t\t},\n\t\t\t\"lesson\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"label\": \"Cours 1\",\n\t\t\t\t\"subject\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 5,\n\t\t\t\t\t\"label\": \"Simulation d'Entreprise\",\n\t\t\t\t\t\"module_id\": 3\n\t\t\t\t},\n\t\t\t\t\"lesson_type\":\n\t\t\t\t{\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"label\": \"CM\"\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t\"room\":\n\t\t{\n\t\t\t\"id\": 11,\n\t\t\t\"label\": \"SC101\",\n\t\t\t\"capacity\": 50,\n\t\t\t\"building\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"label\": \"Polytech\"\n\t\t\t}\n\t\t},\n\t\t\"time_slot\":\n\t\t{\n\t\t\t\"id\": 4,\n\t\t\t\"start\": \"14:00:00\",\n\t\t\t\"end\": \"15:30:00\"\n\t\t}\n\t}\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\reservation.js"
+  },
+  {
+    "type": "post",
     "url": "/rooms",
     "title": "Create",
     "name": "RoomCreate",
@@ -3747,7 +5073,7 @@
           {
             "group": "201",
             "type": "Integer",
-            "field": "subject.module.module_manager_id",
+            "field": "subject.module.teacher_id",
             "optional": false,
             "description": ""
           }
@@ -3756,7 +5082,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 201 OK\n{\n\t\"subject\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception par Objet\",\n\t\t\"module\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"module_manager_id\": 1\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 201 OK\n{\n\t\"subject\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception par Objet\",\n\t\t\"module\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"teacher_id\": 1\n\t\t}\n\t}\n}\n"
         }
       ]
     },
@@ -3896,7 +5222,7 @@
           {
             "group": "200",
             "type": "Integer",
-            "field": "subject.module.module_manager_id",
+            "field": "subject.module.teacher_id",
             "optional": false,
             "description": ""
           }
@@ -3905,7 +5231,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"subjects\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception par Objet\",\n\t\t\t\"module\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\t\"module_manager_id\": 1\n\t\t\t}\n\t\t}\n\t]\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"subjects\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception par Objet\",\n\t\t\t\"module\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\t\"teacher_id\": 1\n\t\t\t}\n\t\t}\n\t]\n}\n"
         }
       ]
     },
@@ -4004,7 +5330,7 @@
           {
             "group": "200",
             "type": "Integer",
-            "field": "subject.module.module_manager_id",
+            "field": "subject.module.teacher_id",
             "optional": false,
             "description": ""
           }
@@ -4013,7 +5339,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"subject\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception par Objet\",\n\t\t\"module\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"module_manager_id\": 1\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"subject\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception par Objet\",\n\t\t\"module\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"teacher_id\": 1\n\t\t}\n\t}\n}\n"
         }
       ]
     },
@@ -4147,7 +5473,7 @@
           {
             "group": "200",
             "type": "Integer",
-            "field": "subject.module.module_manager_id",
+            "field": "subject.module.teacher_id",
             "optional": false,
             "description": ""
           }
@@ -4156,7 +5482,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\t\"subject\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception par Objet\",\n\t\t\"module\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"module_manager_id\": 1\n\t\t}\n\t}\n}\n"
+          "content": "HTTP/1.1 200 OK\n{\n\t\"subject\":\n\t{\n\t\t\"id\": 1,\n\t\t\"label\": \"Conception par Objet\",\n\t\t\"module\":\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"label\": \"Conception de Bases de Données\",\n\t\t\t\"teacher_id\": 1\n\t\t}\n\t}\n}\n"
         }
       ]
     },
@@ -4392,6 +5718,432 @@
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n\t\"teachers\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"first_name\": \"Anne\",\n\t\t\t\"last_name\": \"Laurent\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"first_name\": \"Bernard\",\n\t\t\t\"last_name\": \"Fallery\"\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\teacher.js"
+  },
+  {
+    "type": "get",
+    "url": "/teachers/:id/reservation_requests",
+    "title": "ReservationRequests",
+    "name": "TeacherReservationRequests",
+    "group": "Teacher",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "logged",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Teacher not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "reservation_requests",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Reservation",
+            "field": "reservation_request_from_reservation_requests",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.status",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.time_slot",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.time_slot.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.time_slot.start",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.time_slot.end",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teaching",
+            "field": "reservation_request.teaching",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.teaching.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.teaching.group_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.teaching.teacher_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.teaching.lesson_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.time_slot_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.room_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.teaching_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.reservation_request_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"reservation_requests\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"date\": \"2013-11-17T00:00:00.000Z\",\n\t\t\t\"capacity\": 50,\n\t\t\t\"status\": null,\n\t\t\t\"time_slot_id\": 4,\n\t\t\t\"teaching_id\": 13,\n\t\t\t\"teaching\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"group_id\": 4,\n\t\t\t\t\"lesson_id\": 13,\n\t\t\t\t\"teacher_id\": 7\n\t\t\t},\n\t\t\t\"reservation\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"date\": \"2013-11-17T00:00:00.000Z\",\n\t\t\t\t\"time_slot_id\": 4,\n\t\t\t\t\"teaching_id\": 13,\n\t\t\t\t\"reservation_request_id\": 1,\n\t\t\t\t\n\t\t\t}\n\t\t}\n\t]\n}\n"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "js\\teacher.js"
+  },
+  {
+    "type": "get",
+    "url": "/teachers/:id/reservation_requests_available",
+    "title": "ReservationRequestsAvailable",
+    "name": "TeacherReservationRequestsAvailable",
+    "group": "Teacher",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "field": "id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": {
+      "name": "manager",
+      "title": "",
+      "description": ""
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "field": "Unauthorized",
+            "optional": false,
+            "description": ""
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "field": "message",
+            "optional": false,
+            "description": "Teacher not found"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Array",
+            "field": "reservation_requests",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Reservation",
+            "field": "reservation_request_from_reservation_requests",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.capacity",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.status",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.time_slot",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.time_slot.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.time_slot.start",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "field": "reservation_request.time_slot.end",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Teaching",
+            "field": "reservation_request.teaching",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.teaching.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.teaching.group_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.teaching.teacher_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.teaching.lesson_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.date",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.time_slot_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.room_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.teaching_id",
+            "optional": false,
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Integer",
+            "field": "reservation_request.reservation.reservation_request_id",
+            "optional": false,
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\t\"reservation_requests\":\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"date\": \"2013-11-17T00:00:00.000Z\",\n\t\t\t\"capacity\": 50,\n\t\t\t\"status\": null,\n\t\t\t\"time_slot_id\": 4,\n\t\t\t\"teaching_id\": 13,\n\t\t\t\"teaching\":\n\t\t\t{\n\t\t\t\t\"id\": 13,\n\t\t\t\t\"group_id\": 4,\n\t\t\t\t\"lesson_id\": 13,\n\t\t\t\t\"teacher_id\": 7\n\t\t\t},\n\t\t\t\"reservation\":\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"date\": \"2013-11-17T00:00:00.000Z\",\n\t\t\t\t\"time_slot_id\": 4,\n\t\t\t\t\"teaching_id\": 13,\n\t\t\t\t\"reservation_request_id\": 1,\n\t\t\t\t\n\t\t\t}\n\t\t}\n\t]\n}\n"
         }
       ]
     },
